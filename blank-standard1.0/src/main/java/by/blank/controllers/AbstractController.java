@@ -1,6 +1,8 @@
 package by.blank.controllers;
 
 
+import by.blank.model.services.user.UserService;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +14,8 @@ import static by.blank.constants.JspConstants.MESSAGE_ATTR;
 
 @WebServlet(name = "abstractController")
 public abstract class AbstractController extends HttpServlet {
+    private UserService userService;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
