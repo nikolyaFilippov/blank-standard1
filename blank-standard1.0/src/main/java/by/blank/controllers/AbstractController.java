@@ -14,7 +14,12 @@ import static by.blank.constants.JspConstants.MESSAGE_ATTR;
 
 @WebServlet(name = "abstractController")
 public abstract class AbstractController extends HttpServlet {
-    private UserService userService;
+    public UserService userService;
+
+    @Override
+    public void init() throws ServletException {
+       userService = UserService.getService();
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

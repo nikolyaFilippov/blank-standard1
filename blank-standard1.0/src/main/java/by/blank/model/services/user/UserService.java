@@ -4,13 +4,13 @@ import by.blank.model.dao.user.UserDao;
 import by.blank.model.entities.user.User;
 
 public class UserService {
-    private UserService service;
+    public static UserService service;
     private UserDao dao;
 
     public UserService(){
         dao = UserDao.getInstance();
     }
-    public UserService getService(){
+    public static UserService getService(){
         return service == null? new UserService():service;
     }
     public User getUser(String login, String password){
